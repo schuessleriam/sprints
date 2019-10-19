@@ -1,0 +1,65 @@
+
+<html>
+
+
+<head>
+        <title>Sprintz New Project Page</title>
+</head>
+
+
+<body>
+<h1> Sprintz | Time and Group Management</h1>
+
+
+<div>
+<aside>
+
+<h2>Add New Sprint:</h2>
+<%= form_for([@group, @group.sprints.build]) do |f| %>
+  <p>
+    <%= f.text_field :sprint_info %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>Add New Members:</h2>
+<h3>(add by User ID)</h3>
+<%= form_for([@group, @group.members.build]) do |f| %>
+  <p>
+    <%= f.text_field :mem %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<br><%= button_to 'Return to Student Page', students_path, :method => "get" %>
+</aside>
+</div>
+
+
+<section>
+        <h3> Current Project: <%= @group.name %> </h3>
+        <p> About: <%= @group.project_description %>
+
+	<p> Remaining Sprints:
+        <p> 
+<ol>
+	<% @group.sprints.each do |sprint| %>
+        <p>	
+           <li>	<%= sprint.sprint_info %> </li> <td><%= button_to 'Sprint Completed', [sprint.group, sprint],
+              method: :delete,
+              data: { confirm: 'Are you sure you completed this objective? you can always recreate it if it resurfaces.' } %></td>	        
+       </p>
+	<% end %>
+</ol>
+
+</section>
+</body>
+
+
+
+</html>

@@ -1,0 +1,32 @@
+
+
+<html>
+
+
+<head>
+	<title>Sprintz New Project Page</title>
+</head>
+
+
+<body>
+<h1> Sprintz | Time and Group Management</h1>
+
+
+<section style="width: 100%">
+<%= form_for :group, url: groups_path do |f| %>		
+		Project Name:
+		<br>
+    		<%= f.text_field :name %>
+		<br>
+		Description:
+		<br>
+		<%= f.text_area :project_description %>
+		<br>
+		<br>	
+		Confirm User ID:
+		<%= f.text_field :member_id %>   		
+		<br>
+		<%= f.submit %>
+		<% end %>
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+</section>

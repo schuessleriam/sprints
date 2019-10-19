@@ -1,0 +1,38 @@
+<html>
+
+
+<head>
+
+
+<title>Sprintz</title>
+
+
+</head>
+
+
+<h1> Sprintz | Managing Your Project Management </h1>
+
+
+<div>
+
+<aside>
+        <h2>User ID</h2>
+        <!user id from database>
+</aside>
+</div>
+
+<section>
+<h3> All Current Projects </h3>
+<ol>
+ <% @sprints.each do |sprint| %>
+        <li><h4> <%= sprint.sprint_info %> </h4></li>
+        <p> About Project: <%= group.project_description %>
+        <br><td><%= link_to 'Delete sprint', [sprint.group, sprint],
+              method: :delete,
+              data: { confirm: 'Are you sure? Deleting sprint will also delete for all otber members.' } %></td>
+        <% end %>
+</ol>
+</section>
+
+</body>
+</html>

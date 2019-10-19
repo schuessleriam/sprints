@@ -1,0 +1,22 @@
+<html>
+
+
+<head>
+
+
+<title>Sprintz</title>
+
+
+</head>
+
+
+<h1> Sprintz | Time and Group Management </h1>
+
+<section style= "width: 100%">
+<h3> All Current Students </h3>
+ <% @students.each do |student| %>
+        <br> <td><%= link_to  student.username, student_path(student) %></td>
+        <% end %>
+</section>
+</body>
+</html>

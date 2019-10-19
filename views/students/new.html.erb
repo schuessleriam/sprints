@@ -1,0 +1,15 @@
+<h1>Create a User ID</h1>
+<section style= "width:100%">
+
+<%= form_for :student, url: students_path do |f| %>
+  <p>
+    <h3> Create your username (you can use your real name!) </h3>
+    <%= f.text_field :username %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+</section>

@@ -1,0 +1,48 @@
+<head>
+
+
+<title>Sprintz</title>
+
+
+</head>
+
+
+<h1> Welcome to Sprintz, <%= @student.username %> </h1>
+
+
+<div>
+
+<aside>
+	<h3><b>Username<b>: <%= @student.username %> </h3>
+        <h3><b>User ID<b>:  <%= @student.id %></h3>
+        <hl>Active Projects:</hl>
+        <ol>
+
+	<% @groups.each do |group| %>
+	<% if @student.id == group.member_id %>
+		<li> <td><%= link_to group.name, group_path(group) %></td></li> 
+<%end%>
+<%end%>
+
+	<% @groups.each do |group| %> 
+ 	       <%  group.members.each do |member| %>
+			<%if  member.mem == @student.id %> 
+				<li> <td><%= link_to group.name, group_path(group) %></td></li>
+<%end%>
+<%end%>
+<%end%>
+        </ol>
+</aside>
+</div>
+
+
+<section>
+<h4> This is your home page
+
+<br>
+<h4> Create a group and get started! <br> <br> After you have created a project, click the name in the Active Projects list on the top right to go to that page.</h4>
+<br><%= button_to 'Create new Project', new_group_path, :method => "get" %>
+</section>
+</body>
+
+</html>

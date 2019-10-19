@@ -1,0 +1,58 @@
+<html>
+
+
+<head>
+        <title>Sprintz Edit  Project Page</title>
+</head>
+
+
+<body>
+<h1> Sprintz | Managing your Group Management</h1>
+
+
+<div>
+<aside>
+        <h2>User ID</h2>
+        <!user id from database>
+        <hl>Active Projects:</hl>
+        <ol>
+                <% @groups.each do |group| %>
+                <li> <td><%= link_to group.name, group_path(group) %> </td></li>
+                <%end%>
+        </ol>
+
+</aside>
+</div>
+<section>
+<%= form_for :group, url: groups_path(@group), method: :patch do |f| %>
+                Project Name:
+                <br>
+                <p>
+                <%= f.text_field :name %>
+                </p>
+                <br>
+                <br>
+
+                Add People:
+                <br>
+                <%= f.text_field :member_name %>
+                <br>
+                <%= f.text_field :member_name %>
+                <br>
+                <%= f.text_field :member_name %>
+                <br>
+                <%= f.text_field :member_name %>
+                <br>
+                <br>
+                Description:
+                <br>
+                <%= f.text_area :project_description %>
+                <br>
+                <br>
+                </textarea>
+                <p>
+                <%= f.submit %>
+                </p>
+                <% end %>
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+</section>
